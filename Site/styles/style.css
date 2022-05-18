@@ -87,7 +87,7 @@ body{
     margin: 0 .9vw;
     text-decoration: none;
     transition: color .2s linear;
-    font-size: 1.9vw;
+    font-size: 1.7vw;
 }
 /*
 Интерактивность при наведении
@@ -215,3 +215,32 @@ body{
     z-index: 10;
 }
 
+/*
+Изменение имени пользователя
+ */
+.nameU{
+    font-size: 1.3vw;
+    color: #c80000;
+    font-weight: bold;
+    vertical-align: top;
+    text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;
+}
+
+.list, .list td{
+    border-collapse: collapse;
+    border: 1px solid #7a0008;
+}
+
+.list td{
+    padding: 5px;
+}
+
+.icons{
+    width: 30px;
+    height: 30px;
+}
+
+.user_avatar{
+    width: 10vw;
+    height: 10vw;
+}

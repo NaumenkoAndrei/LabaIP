@@ -112,3 +112,14 @@ body, html
 .reg:hover{
     color: red;
 }
+
+/*
+Изменение имени пользователя
+ */
+.nameU{
+    font-size: 1.3vw;
+    color: #c80000;
+    font-weight: bold;
+    vertical-align: top;
+    text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;
+}

@@ -98,7 +98,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //Получение холста из DOM
 var ctx = canvas.getContext("2d"); //Получение контекста — через него можно работать с холстом
 
-var scale = 0.15; //Размер автомобилей
+var scale = 0.1; //Размер автомобилей
 
 Resize(); //При загрузке страницы задаётся размер холста
 
@@ -112,9 +112,9 @@ window.addEventListener("keydown", function (e) { KeyDown(e); }); //Получе
 var objects = []; //Массив игровых объектов
 
 var roads = [
-    new Road("/images/road.jpg", 0),
-    new Road("/images/road.jpg", canvas.width)
-  ]; //Массив с фонами
+  new Road("/images/road.jpg", 0),
+  new Road("/images/road.jpg", canvas.width)
+]; //Массив с фонами
 
 var player = new Car("/images/car.png", canvas.width / 2, canvas.height / 2, true); //Объект игрока
 
