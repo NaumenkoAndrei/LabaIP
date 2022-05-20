@@ -15,62 +15,81 @@ session_start();
 </head>
 <body>
 <header class="header">
-  <div class="container" >
-    <div class="rectangle1">
-
-      <a class="nameU">
-        <?php
-        if (isset($_SESSION['auth'])) {
-          echo "Пользователь: " . $_SESSION['name'];
-          echo "<a class='reg' href ='../exit.php'> Выход </a>";
-        }else {?>
-          <a class="reg" href="registration.php">Регистрация</a>
-          <a class="reg" href="authorization.php"><u>Авторизация</u></a>
-        <?}?>
-      </a>
-
-      <div class="rectangle">
-        <div class="header_inner">
-          <div class="header_logo">573GamesOfKings</div>
-          <nav class="nav">
-            <?
-            $type = $_SESSION['user_type'];
-            if($type == 0){?>
-              <a class="nav_link" href="../admin/listusers.php">Список пользователей</a><?
-            }?>
-            <a class="nav_link" href="../index.php">Главная</a>
-            <a class="nav_link" href="rating.php">Рейтинг</a>
-            <a class="nav_link" href="facts.php">Факты</a>
-            <a class="nav_link" href="quotes.php">Цитаты</a>
-            <a class="nav_link" href="photo.php">Фото</a>
-            <a class="nav_link" href="game.php">Игра</a>
-          </nav>
-        </div>
+  <div class="container">
+    <div class="header_body">
+      <div class="header_logo">573GamesOfKings</div>
+      <div class="header_burger">
+        <span></span>
       </div>
+      <nav class="header_menu">
+        <ul class="header_list">
+          <?
+          $type = $_SESSION['user_type'];
+          if (isset($_SESSION['auth'])) {
+            if($type == 5){?>
+              <a href="../admin/listusers.php" class="header_link">Список</a><?
+            }
+          }?>
+          <li>
+            <a href="../index.php" class="header_link">Главная</a>
+          </li>
+          <li>
+            <a href="../pages/rating.php" class="header_link">Рейтинг</a>
+          </li>
+          <li>
+            <a href="../pages/facts.php" class="header_link">Факты</a>
+          </li>
+          <li>
+            <a href="../pages/quotes.php" class="header_link">Цитаты</a>
+          </li>
+          <li>
+            <a href="../pages/photo.php" class="header_link">Фото</a>
+          </li>
+          <li>
+            <a href="../pages/game.php" class="header_link">Игра</a>
+          </li>
+          <?php
+          if (isset($_SESSION['auth'])) {
+            echo "<li class='header_link''>Пользователь: " . $_SESSION['name']."</li>";?>
+            <li><a href ='../exit.php' class="header_link"> Выход </a></li>
+          <?}else {?>
+            <li>
+              <a href="../pages/registration.php" class="header_link">Регистрация</a>
+            </li>
+            <li>
+              <a href="../pages/authorization.php" class="header_link">Авторизация</a>
+            </li>
+          <?}?>
+
+        </ul>
+      </nav>
     </div>
   </div>
 </header>
+<div class="content">
+  <div class="container">
+    <div class="content_text">
+      <center><h2>Авторизация</h2></center>
+      <center>
+        <form action="../core/auth.php" method="POST">
+          <label for="login">Логин</label></br>
+          <input name="login"></br>
 
-<div class="txt">
-  <center><h2>Авторизация</h2></center>
-  <center>
-    <form action="../core/auth.php" method="POST">
-      <label for="login">Логин</label></br>
-      <input name="login"></br>
+          <label for="pas">Пароль</label></br>
+          <input type="password" name="pas"></br>
 
-      <label for="pas">Пароль</label></br>
-      <input type="password" name="pas"></br>
+          <input type="submit" value="Войти">
 
-      <input type="submit" value="Войти">
+        </form>
+      </center>
+      <div> <center>
+          <?=$error?>
+      </div> </center>
 
-    </form>
-  </center>
-  <div> <center>
-      <?=$error?>
-  </div> </center>
+    </div>
+  </div>
 </div>
-
-
+<script src="../scripts/script.js"></script>
 
 </body>
 </html>

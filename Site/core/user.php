@@ -38,7 +38,7 @@
       DB::query($query);
 
       $_SESSION['auth'] = true;
-      $_SESSION['name'] = $fio;
+      $_SESSION['name'] = $login;
       $_SESSION['user_type'] = 1;
       header('location: /');
     }

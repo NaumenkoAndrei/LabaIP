@@ -11,7 +11,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <title>Редактировние пользователя</title>
-  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/1.css">
 </head>
 <body>
 <header class="header">

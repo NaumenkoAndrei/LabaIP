@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $res = DB::query($query);
     if (($item = DB::fetch_array($res)) != false) {
       $_SESSION['auth'] = true;
-      $_SESSION['name'] = $item['fio'];
+      $_SESSION['name'] = $login;
       $_SESSION['user_type'] = $item['user_type'];
       header('location: /');
     }

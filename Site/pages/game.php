@@ -10,48 +10,70 @@ session_start();
 <html>
 <head>
   <title>Игра</title>
-  <link rel="stylesheet" href="../styles/game.css">
+  <link rel="stylesheet" href="../styles/style.css">
+
   <meta charset="utf-8">
 </head>
 <body>
 <header class="header">
-  <div class="container" >
-
-    <a class="nameU">
-      <?php
-      if (isset($_SESSION['auth'])) {
-        echo "Пользователь: " . $_SESSION['name'];
-        echo "<a class='reg' href ='../exit.php'> Выход </a>";
-      }else {?>
-        <a class="reg" href="registration.php">Регистрация</a>
-        <a class="reg" href="authorization.php">Авторизация</a>
-      <?}?>
-    </a>
-
-    <div class="rectangle">
-      <div class="header_inner">
-        <div class="header_logo">573GamesOfKings</div>
-        <nav class="nav">
+  <div class="container">
+    <div class="header_body">
+      <div class="header_logo">573GamesOfKings</div>
+      <div class="header_burger">
+        <span></span>
+      </div>
+      <nav class="header_menu">
+        <ul class="header_list">
           <?
           $type = $_SESSION['user_type'];
-          if($type == 5){?>
-            <a class="nav_link" href="../admin/listusers.php">Список пользователей</a><?
+          if (isset($_SESSION['auth'])) {
+            if($type == 5){?>
+              <a href="../admin/listusers.php" class="header_link">Список</a><?
+            }
           }?>
-          <a class="nav_link" href="../index.php">Главная</a>
-          <a class="nav_link" href="rating.php">Рейтинг</a>
-          <a class="nav_link" href="facts.php">Факты</a>
-          <a class="nav_link" href="quotes.php">Цитаты</a>
-          <a class="nav_link" href="photo.php">Фото</a>
-          <a class="nav_link" href="game.php"><u>Игра</u></a>
-        </nav>
-      </div>
+          <li>
+            <a href="../index.php" class="header_link">Главная</a>
+          </li>
+          <li>
+            <a href="rating.php" class="header_link">Рейтинг</a>
+          </li>
+          <li>
+            <a href="facts.php" class="header_link">Факты</a>
+          </li>
+          <li>
+            <a href="quotes.php" class="header_link">Цитаты</a>
+          </li>
+          <li>
+            <a href="photo.php" class="header_link">Фото</a>
+          </li>
+          <li>
+            <a href="game.php" class="header_link">Игра</a>
+          </li>
+          <?php
+          if (isset($_SESSION['auth'])) {
+            echo "<li class='header_link''>Пользователь: " . $_SESSION['name']."</li>";?>
+            <li><a href ='../exit.php' class="header_link"> Выход </a></li>
+          <?}else {?>
+            <li>
+              <a href="registration.php" class="header_link">Регистрация</a>
+            </li>
+            <li>
+              <a href="authorization.php" class="header_link">Авторизация</a>
+            </li>
+          <?}?>
+
+        </ul>
+      </nav>
     </div>
   </div>
+
 </header>
 
 <div class="wrapper">
   <canvas width="0" height="0" class="canvas" id="canvas">Ваш браузер не поддерживает JavaScript и HTML5!</canvas>
 </div>
+<script src="../scripts/script.js"></script>
 <script src="../scripts/game.js"></script>
 </body>
 </html>
+
